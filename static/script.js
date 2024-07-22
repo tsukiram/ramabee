@@ -2,6 +2,7 @@ let commands = [];
 let beePos = [];
 let hivePos = [];
 let direction = 0; // 0: up, 1: right, 2: down, 3: left
+let executing = false; // Flag to prevent adding commands while executing
 
 document.addEventListener('DOMContentLoaded', function() {
     fetch('/init')
@@ -44,11 +45,15 @@ function renderGrid() {
 }
 
 function addCommand(command) {
-    commands.push(command);
-    updateCommandsList();
+    if (!executing) {
+        commands.push(command);
+        updateCommandsList();
+    }
 }
 
 function executeCommands() {
+    if (executing) return;
+    executing = true;
     let delay = 0;
     commands.forEach(command => {
         setTimeout(() => {
@@ -63,9 +68,10 @@ function executeCommands() {
         }, delay);
         delay += 500; // Delay to allow for the transition
     });
-    setTimeout(checkWin, delay);
-    commands = [];
-    updateCommandsList();
+    setTimeout(() => {
+        checkWin();
+        executing = false;
+    }, delay);
 }
 
 function moveForward() {
@@ -110,7 +116,13 @@ function updateCommandsList() {
     commandsList.innerHTML = '';
     commands.forEach(command => {
         const li = document.createElement('li');
-        li.textContent = command;
+        if (command === 'forward') {
+            li.textContent = 'Maju';
+        } else if (command === 'left') {
+            li.textContent = 'Putar Kiri';
+        } else if (command === 'right') {
+            li.textContent = 'Putar Kanan';
+        }
         commandsList.appendChild(li);
     });
 }

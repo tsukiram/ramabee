@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeeBot Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>BeeBot Game</h1>
+    <div class="grid-container" id="grid-container"></div>
+    <div class="controls">
+        <button onclick="addCommand('forward')">Maju</button>
+        <button onclick="addCommand('left')">Putar Kiri</button>
+        <button onclick="addCommand('right')">Putar Kanan</button>
+        <button onclick="executeCommands()">Jalankan</button>
+    </div>
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <p>Selamat, kamu berhasil!</p>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

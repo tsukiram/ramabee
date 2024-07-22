@@ -8,7 +8,14 @@
 </head>
 <body>
     <h1>BeeBot Game</h1>
-    <div class="grid-container" id="grid-container"></div>
+    <div class="game-container">
+        <div class="grid-container" id="grid-container"></div>
+        <div class="commands-container">
+            <h2>Perintah</h2>
+            <ul id="commands-list"></ul>
+            <button onclick="resetCommands()">Reset</button>
+        </div>
+    </div>
     <div class="controls">
         <button onclick="addCommand('forward')">Maju</button>
         <button onclick="addCommand('left')">Putar Kiri</button>

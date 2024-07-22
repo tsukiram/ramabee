@@ -8,11 +8,17 @@ body {
     margin: 0;
 }
 
+.game-container {
+    display: flex;
+    align-items: flex-start;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(8, 50px);
     grid-template-rows: repeat(8, 50px);
     gap: 2px;
+    margin-right: 20px;
 }
 
 .grid-item {
@@ -27,6 +33,26 @@ body {
 
 .bee {
     transition: transform 0.5s;
+}
+
+.commands-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#commands-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+#commands-list li {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .controls {

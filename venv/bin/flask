@@ -1,4 +1,4 @@
-#!/home/rama/beebot/venv/bin/python3.10
+#!/home/rama/ramabee/venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys

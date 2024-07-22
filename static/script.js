@@ -45,6 +45,7 @@ function renderGrid() {
 
 function addCommand(command) {
     commands.push(command);
+    updateCommandsList();
 }
 
 function executeCommands() {
@@ -64,6 +65,7 @@ function executeCommands() {
     });
     setTimeout(checkWin, delay);
     commands = [];
+    updateCommandsList();
 }
 
 function moveForward() {
@@ -101,4 +103,19 @@ function initGame() {
             direction = 0;
             renderGrid();
         });
+}
+
+function updateCommandsList() {
+    const commandsList = document.getElementById('commands-list');
+    commandsList.innerHTML = '';
+    commands.forEach(command => {
+        const li = document.createElement('li');
+        li.textContent = command;
+        commandsList.appendChild(li);
+    });
+}
+
+function resetCommands() {
+    commands = [];
+    updateCommandsList();
 }

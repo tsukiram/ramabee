@@ -71,6 +71,7 @@ function executeCommands() {
     setTimeout(() => {
         checkWin();
         executing = false;
+        resetCommands(); // Reset commands after execution
     }, delay);
 }
 
